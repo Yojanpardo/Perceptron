@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+		.carousel-fade .carousel-inner .item {
+	 transition-property: opacity;
+}
+ .carousel-fade .carousel-inner .item, .carousel-fade .carousel-inner .active.left, .carousel-fade .carousel-inner .active.right {
+	 opacity: 0;
+}
+ .carousel-fade .carousel-inner .active, .carousel-fade .carousel-inner .next.left, .carousel-fade .carousel-inner .prev.right {
+	 opacity: 1;
+}
+ .carousel-fade .carousel-inner .next, .carousel-fade .carousel-inner .prev, .carousel-fade .carousel-inner .active.left, .carousel-fade .carousel-inner .active.right {
+	 left: 0;
+	 transform: translate3d(0,0,0);
+}
+ .carousel-fade .carousel-control {
+	 z-index: 2;
+}
+ html, body, .carousel, .carousel-inner, .carousel-inner .item {
+	 height: 100%;
+}
+ .item:nth-child(1) {
+	 background: #74C390;
+}
+ .item:nth-child(2) {
+	 background: #51BCE8;
+}
+ .item:nth-child(3) {
+	 background: #E46653;
+}
+ .item:nth-child(4){
+ 	 background: #FCD12A;
+}
+ .item:nth-child(5) {
+ 	background: #F05E23;
+ }
+	</style>
+</head>
+<body>
+	<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+        <li data-target="#carousel" data-slide-to="3"></li>
+        <li data-target="#carousel" data-slide-to="4"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="active item">
+        	<div class="container-fluid">
+        		<div class="row">
+        			<div class="col-sm-12 col-lg-6 col-lg-offset-3">
+        				<h1 class="text-center">Perceptron</h1>
+        				<br>
+						<p class="lead">En el campo de las Redes Neuronales, el perceptrón es la neurona artificial o unidad básica de inferencia en forma de discriminador lineal, a partir de lo cual se desarrolla un algoritmo capaz de generar un criterio para seleccionar un sub-grupo a partir de un grupo de componentes más grande.</p>
+        				<p class="lead">La limitación de este algoritmo es que si dibujamos en un gráfico estos elementos, se deben poder separar con un hiperplano únicamente los elementos "deseados" discriminándolos (separándolos) de los "no deseados".</p>
+        				<p class="lead">El perceptrón puede utilizarse con otros tipos de perceptrones o de neurona artificial, para formar una red neuronal artificial más compleja.</p>
+        				<img class="img-responsive" src="https://1569708099.rsc.cdn77.org/wp-content/uploads/2017/09/Single-Perceptron.png?x31195" alt="">
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <div class="item">
+        	<div class="container-fluid">
+        		<div class="row">
+        			<div class="col-sm-12 col-lg-8 col-lg-offset-2">
+        				<h1 class="text-center">Compuerta AND</h1>
+        				<br>
+        				<img class="img-responsive" src="https://hetpro-store.com/TUTORIALES/wp-content/uploads/2017/10/compuerta-or-2.png" alt="">
+        				<br>
+        				<div class="row">
+        					<div class="col-sm-12 col-lg-4"><a class="btn btn-primary" href="{% url "andpage" %}" role="button">Entrenar</a></div>
+        					<div class="col-sm-12 col-lg-4"><a class="btn btn-success" href="#" role="button">Testear</a></div>
+        					<div class="col-sm-12 col-lg-4"><a class="btn btn-success" href="#" role="button">Link</a></div>
+        					<br><br><br>
+        					<div class="col-sm-12 col-lg-12">
+        						<table class="table table-striped table-hover table-responsive">
+        							<thead>
+        								<tr>
+	        								<th>Element #1</th>
+	        								<th>Element #2</th>
+	        								<th>Element #3</th>
+	        								<th>Element #4</th>
+        								</tr>
+        							</thead>
+        									<tr>
+        										<td>el 1</td>
+        										<td>el 2</td>
+        										<td>el 3</td>
+        										<td>el 4</td>
+        									</tr>
+        									<tr>
+        										<td>el 1</td>
+        										<td>el 2</td>
+        										<td>el 3</td>
+        										<td>el 4</td>
+        									</tr>
+        								{% for item in sequence %}
+        								{% endfor %}
+        						</table>
+        					</div>
+        				</div>
+        				<p class="lead"></p>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#carousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#carousel" data-slide="next">&rsaquo;</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.js"></script>
+<script>
+	$('.carousel').carousel();
+</script>
+
+</body>
+</html>
