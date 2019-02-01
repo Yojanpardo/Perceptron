@@ -1,10 +1,9 @@
 <html>
 	<head>
-		<title>Perceptron AND</title>
-		{% load static %}
-		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
-		<link rel="stylesheet" type="text/scss" href="{% static 'css/_variables.scss' %}">
-		<link rel="stylesheet" type="text/scss" href="{% static 'css/_bootwatch.scss' %}">
+		<title>IA - Perceptron NAND</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+		<link rel="stylesheet" type="text/scss" href="assets/css/_variables.scss">
+		<link rel="stylesheet" type="text/scss" href="assets/css/_bootwatch.scss">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 	<body style="background-color: #191919">
@@ -16,17 +15,17 @@
 		
 		  	<div class="collapse navbar-collapse" id="navbarColor01">
 		    <ul class="navbar-nav">
+		      <li class="nav-item ">
+		        <a class="nav-link" href="perceptron-and.html"><i class="fas fa-microchip mr-1"></i>Compuerta AND </a>
+		      </li>
 		      <li class="nav-item active">
-		        <a class="nav-link" href="{% url 'andpage' %}"><i class="fas fa-microchip mr-1"></i>Compuerta AND <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" href="perceptron-nand.html"><i class="fas fa-microchip mr-1"></i>Compuerta NAND</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="{% url 'nand' %}"><i class="fas fa-microchip mr-1"></i>Compuerta NAND</a>
+		        <a class="nav-link" href="perceptron-or.html"><i class="fas fa-microchip mr-1"></i>Compuerta OR</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="{% url 'or' %}"><i class="fas fa-microchip mr-1"></i>Compuerta OR</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="{% url 'nor' %}"><i class="fas fa-microchip mr-1"></i>Compuerta NOR</a>
+		        <a class="nav-link" href="perceptron-nor.html"><i class="fas fa-microchip mr-1"></i>Compuerta NOR</a>
 		      </li>
 		    </ul>
 
@@ -35,24 +34,25 @@
 		</nav>
 		<div class="container">
 			<div class="row justify-content-center mt-3">
+				<!--Perceptron-->
 				<div class="col-1"></div>
 				<div class="col-2 text-center">
 					<div class="form-group">
 					  <label class="col-form-label text-light" for="inputDefault">Peso #1</label>
-					  <input disabled type="text" class="form-control" placeholder="W1" value={{w1}} id="inputDefault">
+					  <input type="text" class="form-control" placeholder="W1" id="inputDefault">
 					</div>
 					<div class="form-group">
 					  <label class="col-form-label text-light" for="inputDefault">Peso #2</label>
-					  <input disabled type="text" class="form-control" placeholder="W2" value={{w2}} id="inputDefault">
+					  <input type="text" class="form-control" placeholder="W2" id="inputDefault">
 					</div>
 					<div class="form-group">
 					  <label class="col-form-label text-light" for="inputDefault">Salida Deseada</label>
-					  <input disabled type="text" class="form-control" placeholder="D" value={{typegate}} id="inputDefault">
+					  <input type="text" class="form-control" placeholder="D" id="inputDefault">
 					</div>
 
 				</div>
 				<div class="col-6 text-center">
-					<img src="{% static 'img/red.gif' %}" width="527" height="290" alt="">
+					<img src="red.gif" width="527" height="290" alt="">
 					<!--<video src="vid.mp4" width=527  height=290 controls autoplay=false">
 				Lo sentimos. Este vídeo no puede ser reproducido en tu navegador.<br>
 				La versión descargable está disponible en <a href="URL">Enlace</a>. 
@@ -61,15 +61,15 @@
 				<div class="col-2 text-center">
 					<div class="form-group">
 					  <label class="col-form-label text-light" for="inputDefault">Umbral o Bias</label>
-					  <input disabled type="text" class="form-control" placeholder="Ø" value='{{b}}' id="inputDefault">
+					  <input type="text" class="form-control" placeholder="Ø" id="inputDefault">
 					</div>
 					<div class="form-group">
 					  <label class="col-form-label text-light" for="inputDefault">Coeficiente de Aprendizaje</label>
-					  <input disabled type="text" class="form-control" placeholder="ŋ" value="{{lr}}" id="inputDefault">
+					  <input type="text" class="form-control" placeholder="ŋ" id="inputDefault">
 					</div>
 					<div class="form-group">
 					  <label class="col-form-label text-light" for="inputDefault">.</label>
-					  <input disabled type="text" class="form-control" placeholder="" id="inputDefault">
+					  <input type="text" class="form-control" placeholder="" id="inputDefault">
 					</div>
 
 				</div>
@@ -77,23 +77,60 @@
 				
 			</div>
 			<div class="row mx-auto mt-3">
+				<!--Botones-->
 				<div class="col-4">
-					<a href="{% url 'andpage' %}"><button type="button" class="btn btn-success btn-lg btn-block"><i class="fas fa-diagnoses mr-1"></i>Reiniciar</button></a>
+					<button type="button" class="btn btn-success btn-lg btn-block"><i class="fas fa-diagnoses mr-1"></i>Entrenar</button>
 				</div>
 				<div class="col-4">
 					<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-check mr-1"></i>Comprobar</button>
 				</div>
+				<div class="col-4">
+					<button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+				</div>
 			</div>
 			<div class="row mx-auto mt-3">
-				{{ df |safe }}
+				<!--Tabla-->
+				<table class="table table-hover bg-light">
+				  <thead>
+				    <tr class="text-center">
+				      <th scope="col">Iteracion</th>
+				      <th scope="col">X1</th>
+				      <th scope="col">X2</th>
+				      <th scope="col">Prediccion</th>
+				      <th scope="col">Salida Correcta</th>
+				      <th scope="col">Peso 1</th>
+				      <th scope="col">Peso 2</th>
+				      <th scope="col">Bias</th>
+				      <th scope="col">Coeficiente de Aprendizaje</th>
+				      <th scope="col">Error</th>
+				      <th scope="col">Tasa de Error</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr class="text-center">
+				      <th scope="row">0</th>
+				      <td>0</td>
+				      <td>0</td>
+				      <td>0</td>
+				      <td>0</td>
+				      <td>0</td>
+				      <td>0</td>
+				      <td>0</td>
+				      <td>0</td>
+				      <td>0</td>
+				      <td>0</td>
+				    </tr>
+				  </tbody>
+				</table> 
 			</div>
 		</div>
+
 		<!--Modal de comprobacion-->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModal">Comprobar Compuerta AND</h5>
+		        <h5 class="modal-title" id="exampleModal">Comprobar Compuerta NAND</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
@@ -114,22 +151,22 @@
 					    <tr class="text-center">
 					      <td>0</td>
 					      <td>0</td>
-					      <td>0</td>
+					      <td>1</td>
 					    </tr>
 					    <tr class="text-center">
 					      <td>0</td>
 					      <td>1</td>
-					      <td>0</td>
+					      <td>1</td>
 					    </tr>
 					    <tr class="text-center">
 					      <td>1</td>
 					      <td>0</td>
-					      <td>0</td>
+					      <td>1</td>
 					    </tr>
 					    <tr class="text-center">
 					      <td>1</td>
 					      <td>1</td>
-					      <td>1</td>
+					      <td>0</td>
 					    </tr>
 					  </tbody>
 					</table> 
@@ -137,58 +174,44 @@
 					<div class="col-2"></div>
 		        </div>
 		        <hr>
-		        	<form action="{% url 'andpage_full' %}">
-		        		<div class="row justify-content-center">
-			        		<div class="col-1"></div>
-				        	<div class="col">
-				        		<div class="form-group">
-				        			<label for="A">Primera entrada:</label>
-									<input type="number" min="0" max="1" class="form-control" pattern="[0,1]" maxlength="1" placeholder="A" id="A" name="A" value="{{A}}">
-								</div>
-				        	</div>
-				        	<div class="col">
-				        		<div class="form-group">
-				        			<label for="B">Segunda entrada:</label>
-									<input type="number" class="form-control" placeholder="B" id="B" name="B" value="{{B}}">
-								</div>
-				        	</div>
-				        	<div class="col">
-				        		<div class="form-group">
-				        			<label for="output">Salida:</label>
-									<input type="text" class="form-control" placeholder="Salida" id="output" disabled value="{{output}}">
-								</div>
-				        	</div>
-				        </div>
-					    <div class="col-1"></div>
-					    <div class="modal-footer justify-content-center">
-					        <button type="submit" class="btn btn-success"><i class="fas fa-check"></i></button>
-					        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-					    </div>
-		        	</form>
+		        <div class="row justify-content-center">
+		        	<div class="col-1"></div>
+		        	<div class="col">
+		        		<div class="form-group">
+							  <input type="text" class="form-control" placeholder="A" id="inputDefault">
+						</div>
+		        	</div>
+		        	<div class="col">
+		        		<div class="form-group">
+							  <input type="text" class="form-control" placeholder="B" id="inputDefault">
+						</div>
+		        	</div>
+		        	<div class="col">
+		        		<div class="form-group">
+							  <input type="text" class="form-control" placeholder="Salida" id="inputDefault">
+						</div>
+		        	</div>
+		        	<div class="col-1"></div>
+		        </div>
+		       <div class="modal-footer justify-content-center">
+		        <button type="button" class="btn btn-success"><i class="fas fa-check"></i></button>
+		        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+		      </div>
 		        </div>
 		      </div>
 		    </div>
 		  </div>
+		</div>
 	</body>
 	<script
 		color="255,255,255"
 		opacity='1'
 		zIndex="-2"
 		count="150"
-		src="{% static 'js/canvas-nest.js' %}">
-	</script>
-	<script>
-	{% if response %}
-	    
-		window.onload = function(){
-			$('#exampleModal').modal('show')
-		};	
-	
-	{% endif %}
+		src="assets/js/canvas-nest.js">
 	</script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-		}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 </html>

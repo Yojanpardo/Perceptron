@@ -1,11 +1,12 @@
 """Class perceptron"""
 import numpy as np
 import pandas as pd
+import random
 
 class Perceptron(object):
     """Implements a perceptron network"""
-    def __init__(self, input_size, lr=1, epochs=100):
-        self.W = np.zeros(input_size+1)
+    def __init__(self, input_size, lr=random.random(), epochs=100):
+        self.W = np.random.randint(2,size=3)
         # add one for bias
         self.epochs = epochs
         self.lr = lr
